@@ -19,7 +19,11 @@ function Object3D(opt) {
 	opt.obj.name = "model";
 	Objects.prototype._addMethods(userScaleGroup);
 	//[jscastro] calculate automatically the pivotal center of the object
-	userScaleGroup.setAnchor(opt.anchor);
+	if(opt.anchor && opt.anchor !== 'none'){
+		userScaleGroup.setAnchor(opt.anchor);
+	}else{
+		userScaleGroup.anchor = { x: 0, y: 0, z: 0 };
+	}
 	//[jscastro] override the center calculated if the object has adjustments
 	userScaleGroup.setCenter(opt.adjustment);
 	//[jscastro] if the object is excluded from raycasting

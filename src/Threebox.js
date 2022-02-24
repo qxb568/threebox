@@ -909,7 +909,9 @@ Threebox.prototype = {
 		this.renderer.render(this.scene, this.camera);
 
 		// [jscastro] Render any label
-		this.labelRenderer.render(this.scene, this.camera);
+		
+		// 此功能会导致空闲时一直刷新
+		// this.labelRenderer.render(this.scene, this.camera);
 		if (this.options.passiveRendering === false) this.map.triggerRepaint();
 	},
 
